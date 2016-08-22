@@ -4,14 +4,17 @@ import javax.enterprise.context.RequestScoped;
 
 @RequestScoped
 public class CounterBean implements CounterBeanInterface {
-	private Integer count =3;
+	private Integer count =0;
 
+	@Override
 	public Integer getCount() {
 		return count;
 	}
 
-	public void setCount(Integer count) {
-		this.count = count;
+	@Override
+	public void increment() {
+		count++;
+		
 	}
 	
 }
