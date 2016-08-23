@@ -19,7 +19,7 @@ import fr.imie.DTO.PersonneDTO;
 public class PersonListController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
     
-	private @Inject @Named("PersonServiceSession") PersonServiceInterface personService;
+	private @Inject PersonServiceInterface personService;
     /**
      * @see HttpServlet#HttpServlet()
      */

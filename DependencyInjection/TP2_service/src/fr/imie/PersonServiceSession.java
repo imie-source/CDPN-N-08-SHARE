@@ -5,11 +5,12 @@ import java.util.ArrayList;
 import java.util.List;
 
 import javax.enterprise.context.SessionScoped;
+import javax.enterprise.inject.Alternative;
 import javax.inject.Named;
 
 import fr.imie.DTO.PersonneDTO;
 
-@Named("PersonServiceSession")
+@Alternative
 @SessionScoped
 public class PersonServiceSession implements PersonServiceInterface, Serializable {
 	

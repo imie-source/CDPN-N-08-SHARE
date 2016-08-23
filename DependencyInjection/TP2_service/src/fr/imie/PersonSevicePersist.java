@@ -10,10 +10,11 @@ import java.util.ArrayList;
 import java.util.List;
 
 import javax.enterprise.context.RequestScoped;
+import javax.enterprise.inject.Default;
 import javax.inject.Named;
 
 import fr.imie.DTO.PersonneDTO;
-@Named("PersonServicePersist")
+@Default
 @RequestScoped
 public class PersonSevicePersist extends ADAO implements PersonServiceInterface{
 
