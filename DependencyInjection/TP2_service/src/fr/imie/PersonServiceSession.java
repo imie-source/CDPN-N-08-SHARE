@@ -9,9 +9,9 @@ import javax.inject.Named;
 
 import fr.imie.DTO.PersonneDTO;
 
-@Named("personsService")
+@Named("PersonServiceSession")
 @SessionScoped
-public class PersonService implements PersonServiceInterface, Serializable {
+public class PersonServiceSession implements PersonServiceInterface, Serializable {
 	
 	/**
 	 * 
@@ -20,7 +20,7 @@ public class PersonService implements PersonServiceInterface, Serializable {
 	List<PersonneDTO> persons = new ArrayList<PersonneDTO>();
 	
 	
-	public PersonService() {
+	public PersonServiceSession() {
 		PersonneDTO person1 = new PersonneDTO();
 		person1.setNom("lorem");
 		person1.setPrenom("ipsum");
@@ -38,9 +38,10 @@ public class PersonService implements PersonServiceInterface, Serializable {
 	}
 	
 	@Override
-	public void addPersons(PersonneDTO person) {
+	public PersonneDTO addPersons(PersonneDTO person) {
 		// TODO Auto-generated method stub
 		persons.add(person);
+		return person;
 	}
 
 }

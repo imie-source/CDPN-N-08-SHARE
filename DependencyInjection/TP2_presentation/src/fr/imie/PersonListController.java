@@ -3,6 +3,7 @@ package fr.imie;
 import java.io.IOException;
 
 import javax.inject.Inject;
+import javax.inject.Named;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -18,7 +19,7 @@ import fr.imie.DTO.PersonneDTO;
 public class PersonListController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
     
-	private @Inject PersonServiceInterface personService;
+	private @Inject @Named("PersonServiceSession") PersonServiceInterface personService;
     /**
      * @see HttpServlet#HttpServlet()
      */
@@ -45,7 +46,12 @@ public class PersonListController extends HttpServlet {
 		PersonneDTO newPerson = new PersonneDTO();
 		newPerson.setNom(request.getParameter("lastName"));
 		newPerson.setPrenom(request.getParameter("firstName"));
-		personService.addPersons(newPerson);
+		try {
+			personService.addPersons(newPerson);
+		} catch (ImieException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		doGet(request, response);
 	}
 
