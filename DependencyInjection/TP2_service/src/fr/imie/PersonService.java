@@ -36,5 +36,11 @@ public class PersonService implements PersonServiceInterface, Serializable {
 		// TODO Auto-generated method stub
 		return persons;
 	}
+	
+	@Override
+	public void addPersons(PersonneDTO person) {
+		// TODO Auto-generated method stub
+		persons.add(person);
+	}
 
 }

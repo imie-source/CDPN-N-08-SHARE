@@ -6,4 +6,6 @@ import fr.imie.DTO.PersonneDTO;
 
 public interface PersonServiceInterface {
 	public List<PersonneDTO> getPersons();
+
+	void addPersons(PersonneDTO person);
 }

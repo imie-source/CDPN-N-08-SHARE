@@ -8,15 +8,32 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<table>
-		<c:forEach items="${personsService.persons}" var="person">
-			<tr>
-				<td>${person.nom}
-				<td>
-				<td>${person.prenom}
-				<td>
-			</tr>
-		</c:forEach>
-	</table>
+	<div>
+		<div style="display: inline-block;">
+			<table>
+				<c:forEach items="${persons}" var="person">
+					<tr>
+						<td>${person.nom}
+						<td>
+						<td>${person.prenom}
+						<td>
+					</tr>
+				</c:forEach>
+			</table>
+		</div>
+		<div style="display: inline-block;">
+			<form method="post">
+				<div>
+					<label>nom</label><input type="text" name="lastName">
+				</div>
+				<div>
+					<label>prenom</label><input type="text" name="firstName">
+				</div>
+				<input type="submit" value="add">
+			</form>
+		</div>
+	</div>
+
+
 </body>
 </html>

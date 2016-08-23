@@ -9,6 +9,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import fr.imie.DTO.PersonneDTO;
+
 /**
  * Servlet implementation class PesronListController
  */
@@ -40,6 +42,10 @@ public class PersonListController extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
+		PersonneDTO newPerson = new PersonneDTO();
+		newPerson.setNom(request.getParameter("lastName"));
+		newPerson.setPrenom(request.getParameter("firstName"));
+		personService.addPersons(newPerson);
 		doGet(request, response);
 	}
 
