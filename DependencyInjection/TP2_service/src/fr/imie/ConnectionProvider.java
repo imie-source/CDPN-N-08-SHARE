@@ -9,11 +9,15 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 
+import javax.enterprise.context.Dependent;
+
 /**
  * @author imie
  *
  */
-public class ADAO {
+@Dependent
+public class ConnectionProvider {
+	
 	protected Connection openConnection() throws SQLException {
 		Connection connection;
 		connection = DriverManager

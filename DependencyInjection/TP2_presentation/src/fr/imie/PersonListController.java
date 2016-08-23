@@ -1,6 +1,7 @@
 package fr.imie;
 
 import java.io.IOException;
+import java.sql.SQLException;
 
 import javax.inject.Inject;
 import javax.inject.Named;
@@ -34,7 +35,12 @@ public class PersonListController extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		//response.getWriter().append("Served at: ").append(request.getContextPath());
-		request.setAttribute("persons", personService.getPersons() );
+		try {
+			request.setAttribute("persons", personService.getPersons() );
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		request.getRequestDispatcher("/WEB-INF/PersonList.jsp").forward(request, response);
 	}
 
@@ -48,7 +54,7 @@ public class PersonListController extends HttpServlet {
 		newPerson.setPrenom(request.getParameter("firstName"));
 		try {
 			personService.addPersons(newPerson);
-		} catch (ImieException e) {
+		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
